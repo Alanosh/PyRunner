@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # Update to latest version
 
     - name: Set up JDK 17
       uses: actions/setup-java@v3
@@ -21,18 +21,19 @@ jobs:
         distribution: 'temurin'
 
     - name: Set up Android SDK
-      uses: android-actions/setup-android@v2
+      uses: android-actions/setup-android@v3  # Update to latest version
       with:
         sdk-version: '33'
+        accept-licenses: 'yes'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build --stacktrace
 
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # Update to v4 (or latest)
       with:
         name: app-debug-apk
         path: app/build/outputs/apk/debug/app-debug.apk
