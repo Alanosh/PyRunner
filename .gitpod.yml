@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - name: Install Android SDK
+    init: |
+      sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.0"
+      sdkmanager --install "cmdline-tools;latest"
+      echo "y" | sdkmanager --licenses
+  - name: Start Gradle
+    command: ./gradlew build
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+    - redhat.java
+    - fwcd.kotlin
