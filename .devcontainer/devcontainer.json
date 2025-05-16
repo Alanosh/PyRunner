@@ -1,0 +1,20 @@
+{
+    "name": "PyRunner Development Environment",
+    "build": {
+        "dockerfile": "../.gitpod.Dockerfile"
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "vscjava.vscode-java-pack",
+        "redhat.java",
+        "fwcd.kotlin"
+    ],
+    "postCreateCommand": "bash -c 'sdkmanager \"platform-tools\" \"platforms;android-33\" \"build-tools;33.0.0\" && yes | sdkmanager --licenses'",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "17"
+        }
+    }
+}
